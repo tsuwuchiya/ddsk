@@ -3,16 +3,17 @@
  * 『その並びが「ドドスコスコスコ」を3回繰り返したもの』に一致したときに
  * 「ラブ注入♡」と標準出力して終了するプログラムを作成せよ(配点:5点)
  */
-const dd = "ドド";
-const sk = "スコ";
+const DD = "ドド";
+const SK = "スコ";
+const DDSKSKSK = DD + SK + SK + SK;
+const FINISH = "ラブ注入♡";
 const ddsk = () => {
-  const w = [dd, sk][Math.round(Math.random())];
+  const w = [DD, SK][Math.round(Math.random())];
   process.stdout.write(w);
   return w;
 };
 let arr = new Array(12).fill().map(() => ddsk());
-const FINISH = "ラブ注入♡";
-while (arr.join("") != (dd + sk + sk + sk).repeat(3)) {
+while (arr.join("") != (DDSKSKSK).repeat(3)) {
   arr.shift();
   arr.push(ddsk());
 }
