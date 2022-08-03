@@ -6,14 +6,16 @@
 const dd = "ドド";
 const sk = "スコ";
 const ddsk = () => {
-  return ["ドド", "スコ"][Math.round(Math.random())];
+  const w = [dd, sk][Math.round(Math.random())];
+  process.stdout.write(w);
+  return w;
 };
 let arr = new Array(12).fill().map(() => ddsk());
 const FINISH = "ラブ注入♡";
 while (arr.join("") != (dd + sk + sk + sk).repeat(3)) {
-  const w = ddsk();
   arr.shift();
-  arr.push(w);
-  process.stdout.write(w);
+  arr.push(ddsk());
 }
 console.log(FINISH);
+
+return;
